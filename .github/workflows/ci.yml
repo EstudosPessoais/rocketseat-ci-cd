@@ -33,8 +33,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build docker image
-        run: docker build -t bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }} .
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: docker build -t bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}, docker build -t bielb1b2/rocketseat-ci-api:latest
 
-      - name: Push image
-        run: docker push bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}
+
+      # - name: Build docker image
+      #   run: docker build -t bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }} .
+
+      # - name: Push image
+      #   run: docker push bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }}
