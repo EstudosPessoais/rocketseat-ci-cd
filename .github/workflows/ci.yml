@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: docker build -t bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }},bielb1b2/rocketseat-ci-api:latest
+          tags: bielb1b2/rocketseat-ci-api:${{ steps.generate_tag.outputs.sha }},bielb1b2/rocketseat-ci-api:latest
 
 
       # - name: Build docker image
