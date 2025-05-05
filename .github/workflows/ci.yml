@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     name: "Build and Push"
@@ -30,7 +34,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ''
+          role-to-assume: arn:aws:iam::001348462846:role/ecr-role
           aws-region: us-east-1
 
       - name: Login to AWS ECR
