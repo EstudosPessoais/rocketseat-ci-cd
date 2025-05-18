@@ -57,7 +57,7 @@ jobs:
       - name: Deploy to App Runner
         uses: awslabs/amazon-app-runner-deploy@main
         with:
-          services: rocketseat-api
+          service: rocketseat-api
           image: ${{  steps.build-docker-image.outputs.image }}
           access-role-arn: arn:aws:iam::001348462846:role/app-runner-role
           region: us-east-1
