@@ -62,7 +62,7 @@ jobs:
           access-role-arn: arn:aws:iam::001348462846:role/app-runner-role
           region: us-east-1
           cpu: 1
-          memory: 1
+          memory: 2
           port: 3000 
 
       # - name: Push image
